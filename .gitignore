@@ -1,0 +1,11 @@
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.iml
+*.iws
+*.ipr
+
+# Operating Systems
+.DS_Store
+Thumbs.db

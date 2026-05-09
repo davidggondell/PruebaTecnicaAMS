@@ -1,0 +1,7 @@
+# Build output
+target/
+*.log
+*.gz
+
+# Maven Wrapper
+.mvn/wrapper/maven-wrapper.jar
