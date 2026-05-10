@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 
 interface Props {
-  imageUrl: string;
+  imageUrl: string | null;
   alt: string;
 }
 
@@ -18,16 +18,20 @@ export function ProductImage({ imageUrl, alt }: Props) {
         boxShadow: "0 4px 6px -1px rgba(0,0,0,0.05)",
       }}
     >
-      <Box
-        component="img"
-        src={imageUrl}
-        alt={alt}
-        sx={{
-          maxWidth: "100%",
-          maxHeight: 400,
-          objectFit: "contain",
-        }}
-      />
+      {imageUrl ? (
+        <Box
+          component="img"
+          src={imageUrl}
+          alt={alt}
+          sx={{
+            maxWidth: "100%",
+            maxHeight: 400,
+            objectFit: "contain",
+          }}
+        />
+      ) : (
+        <Box sx={{ color: "text.disabled" }}>No Image Available</Box>
+      )}
     </Box>
   );
 }

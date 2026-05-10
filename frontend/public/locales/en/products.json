@@ -13,5 +13,12 @@
   "camera": "Camera",
   "dimensions": "Dimensions",
   "weight": "Weight",
-  "similarProducts": "Similar Products"
+  "similarProducts": "Similar Products",
+  "priceNotAvailable": "Price not found for this item",
+  "selectOptions": "Select options",
+  "storage": "Storage",
+  "color": "Color",
+  "noItems": "No items found",
+  "addToCartSuccess": "Product added to cart!",
+  "addToCartError": "Failed to add product to cart"
 }

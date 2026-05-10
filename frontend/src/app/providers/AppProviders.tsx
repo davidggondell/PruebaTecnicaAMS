@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
-import { QueryClientProvider } from "@tanstack/react-query";
+import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
 import { ThemeProvider } from "@mui/material/styles";
 import { styled, CssBaseline } from "@mui/material";
 import { MaterialDesignContent, SnackbarProvider } from "notistack";
-import { queryClient } from "../queries/queryClient";
+import { queryClient, persister } from "../queries/queryClient";
 import { theme } from "../theme/theme";
 
 const StyledMaterialDesignContent = styled(MaterialDesignContent)(() => ({
@@ -24,12 +24,15 @@ interface AppProvidersProps {
 
 export function AppProviders({ children }: AppProvidersProps) {
   return (
-    <QueryClientProvider client={queryClient}>
+    <PersistQueryClientProvider
+      client={queryClient}
+      persistOptions={{ persister, maxAge: 3600000 }}
+    >
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <SnackbarProvider
           maxSnack={3}
-          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
           Components={{
             success: StyledMaterialDesignContent,
             error: StyledMaterialDesignContent,
@@ -39,6 +42,6 @@ export function AppProviders({ children }: AppProvidersProps) {
           {children}
         </SnackbarProvider>
       </ThemeProvider>
-    </QueryClientProvider>
+    </PersistQueryClientProvider>
   );
 }

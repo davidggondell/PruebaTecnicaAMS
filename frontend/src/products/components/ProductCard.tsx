@@ -1,12 +1,14 @@
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import type { Product } from "@/products/types/product.types";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   product: Product;
 }
 
 export function ProductCard({ product }: Props) {
+  const { t } = useTranslation(["products"]);
   return (
     <Card
       component={Link}
@@ -28,8 +30,8 @@ export function ProductCard({ product }: Props) {
       <CardMedia
         component="img"
         height="200"
-        image={product.imageUrl}
-        alt={`${product.brand} ${product.model}`}
+        image={product.imageUrl ?? undefined}
+        alt={`${product.brand ?? "-"} ${product.model ?? "-"}`}
         className="p-2"
         sx={{ objectFit: "contain", bgcolor: "grey.50" }}
       />
@@ -41,12 +43,12 @@ export function ProductCard({ product }: Props) {
           {product.model}
         </Typography>
         <Typography
-          variant="h6"
-          color="primary"
+          variant={product.price ? "h6" : "body2"}
+          color={product.price ? "primary" : "error"}
           className="mt-1"
           sx={{ fontWeight: 700 }}
         >
-          ${product.price.toLocaleString()}
+          {product.price ? `$${product.price.toLocaleString()}` : t("priceNotAvailable")}
         </Typography>
       </CardContent>
     </Card>

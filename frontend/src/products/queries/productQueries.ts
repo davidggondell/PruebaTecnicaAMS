@@ -1,35 +1,26 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { useQuery, useMutation } from "@tanstack/react-query";
-import { mockProducts } from "@/services/mockProducts";
+import { productService } from "@/services/productService";
 import type { ProductDetail, AddToCartRequest, CartResponse } from "@/products/types/product.types";
 
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-export const getProductsQuery = ({ enabled = true }: { enabled?: boolean } = {}) => {
+export const useGetProductsQuery = ({ enabled = true }: { enabled?: boolean } = {}) => {
   return useQuery<ProductDetail[]>({
     queryKey: ["products"],
-    queryFn: async () => {
-      await delay(400);
-      return mockProducts;
-    },
+    queryFn: () => productService.getProducts(),
     staleTime: 3600000,
     enabled,
   });
 };
 
-export const getProductDetailQuery = (id: string | undefined) => {
+export const useGetProductDetailQuery = (id: string | undefined) => {
   return useQuery<ProductDetail | null>({
     queryKey: ["product", id],
-    queryFn: async () => {
-      await delay(400);
-      return mockProducts.find((p) => p.id === id) ?? null;
-    },
+    queryFn: () => (id ? productService.getProductDetail(id) : null),
     staleTime: 3600000,
     enabled: !!id,
   });
 };
 
-export const addToCartMutation = ({
+export const useAddToCartMutation = ({
   onSuccess,
   onError,
 }: {
@@ -37,10 +28,7 @@ export const addToCartMutation = ({
   onError?: (error: Error) => void;
 } = {}) => {
   return useMutation({
-    mutationFn: async (_body: AddToCartRequest) => {
-      await delay(400);
-      return { count: 1 } as CartResponse;
-    },
+    mutationFn: (body: AddToCartRequest) => productService.addToCart(body),
     onSuccess,
     onError,
   });

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FormControl, InputLabel, Select, MenuItem, Button, Typography, Box, Stack } from "@mui/material";
+import { FormControl, InputLabel, Select, MenuItem, Button, Typography, Stack } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import type { ProductDetail } from "@/products/types/product.types";
@@ -10,10 +10,10 @@ interface Props {
 }
 
 export function ProductActions({ product }: Props) {
-  const { t } = useTranslation(["common", "products"]);
+  const { t } = useTranslation(["products"]);
   const [storage, setStorage] = useState(product.storageOptions[0]?.code ?? "");
   const [color, setColor] = useState(product.colorOptions[0]?.code ?? "");
-  const { addToCart } = useAddToCart();
+  const { addToCart, isPending } = useAddToCart();
 
   const handleAdd = () => {
     addToCart({
@@ -29,7 +29,7 @@ export function ProductActions({ product }: Props) {
         {t("selectOptions")}
       </Typography>
 
-      <FormControl fullWidth size="small">
+      <FormControl fullWidth size="small" disabled={!product.price}>
         <InputLabel id="storage-label">{t("storage")}</InputLabel>
         <Select
           labelId="storage-label"
@@ -45,26 +45,12 @@ export function ProductActions({ product }: Props) {
         </Select>
       </FormControl>
 
-      <FormControl fullWidth size="small">
+      <FormControl fullWidth size="small" disabled={!product.price}>
         <InputLabel id="color-label">{t("color")}</InputLabel>
         <Select labelId="color-label" value={color} label={t("color")} onChange={(e) => setColor(e.target.value)}>
           {product.colorOptions.map((opt) => (
             <MenuItem key={opt.code} value={opt.code}>
-              <Box className="d-flex items-center gap-1">
-                {opt.hexColor && (
-                  <Box
-                    className="w-2 h-2"
-                    sx={{
-                      borderRadius: "50%",
-                      bgcolor: opt.hexColor,
-                      border: "1px solid",
-                      borderColor: "divider",
-                      boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.1)",
-                    }}
-                  />
-                )}
-                {opt.name}
-              </Box>
+              {opt.name}
             </MenuItem>
           ))}
         </Select>
@@ -75,10 +61,11 @@ export function ProductActions({ product }: Props) {
         size="large"
         startIcon={<AddShoppingCartIcon />}
         onClick={handleAdd}
+        disabled={!product.price || isPending}
         fullWidth
         className="py-3"
       >
-        {t("addToCart", { ns: "products" })}
+        {t("addToCart")}
       </Button>
     </Stack>
   );

@@ -13,5 +13,12 @@
   "camera": "Cámara",
   "dimensions": "Dimensiones",
   "weight": "Peso",
-  "similarProducts": "Productos similares"
+  "similarProducts": "Productos similares",
+  "priceNotAvailable": "Precio no encontrado para este artículo",
+  "selectOptions": "Seleccionar opciones",
+  "storage": "Almacenamiento",
+  "color": "Color",
+  "noItems": "No se encontraron elementos",
+  "addToCartSuccess": "¡Producto añadido al carrito!",
+  "addToCartError": "Error al añadir el producto al carrito"
 }

@@ -1,17 +1,17 @@
 import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
-  cssVariables: true, // <--- Esto permite que MUI use variables CSS internamente
+  cssVariables: true,
   palette: {
     primary: {
-      main: "#0f172a", // Slate 900 (Muy profesional)
+      main: "#0f172a",
       contrastText: "#ffffff",
     },
     secondary: {
-      main: "#6366f1", // Indigo
+      main: "#6366f1",
     },
     background: {
-      default: "#f8fafc", // Gris azulado muy claro
+      default: "#f8fafc",
       paper: "#ffffff",
     },
     text: {
@@ -20,11 +20,11 @@ export const theme = createTheme({
     },
   },
   shape: {
-    borderRadius: 12, // Bordes más redondeados y modernos
+    borderRadius: 12,
   },
   spacing: 8,
   typography: {
-    fontFamily: '"Outfit", "Inter", sans-serif', // Una fuente un poco más moderna
+    fontFamily: '"Outfit", "Inter", sans-serif',
   },
   components: {
     MuiButton: {

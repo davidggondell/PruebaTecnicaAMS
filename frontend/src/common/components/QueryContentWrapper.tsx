@@ -4,7 +4,7 @@ import { CenterBox } from "./CenterBox";
 
 interface QueryContentWrapperProps {
   children: ReactNode;
-  error?: any;
+  error?: Error | null;
   errorText?: string;
   isLoading: boolean;
   isEmptyList?: boolean;

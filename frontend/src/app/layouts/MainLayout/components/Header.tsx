@@ -18,7 +18,7 @@ export function Header() {
       position="sticky"
       elevation={0}
       sx={{
-        backgroundColor: "rgba(15, 23, 42, 0.9)", // Primary con transparencia
+        backgroundColor: "rgba(15, 23, 42, 0.9)",
         backdropFilter: "blur(8px)",
         borderBottom: "1px solid",
         borderColor: "rgba(255, 255, 255, 0.1)",
@@ -48,11 +48,7 @@ export function Header() {
             </Typography>
           </Box>
 
-          <Breadcrumbs
-            aria-label="breadcrumb"
-            className="flex-grow"
-            color="primary.contrastText"
-          >
+          <Breadcrumbs aria-label="breadcrumb" className="flex-grow" color="primary.contrastText">
             <Typography
               component={Link}
               to="/"

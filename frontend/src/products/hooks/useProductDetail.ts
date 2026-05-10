@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import { getProductDetailQuery } from "@/products/queries/productQueries";
+import { useGetProductDetailQuery } from "@/products/queries/productQueries";
 import { useMySnackbar } from "@/app/hooks/useMySnackbar";
 
 export const useProductDetail = (id: string | undefined) => {
   const { showSnackbar } = useMySnackbar();
-  const { data, isLoading, error } = getProductDetailQuery(id);
+  const { data, isLoading, error } = useGetProductDetailQuery(id);
 
   useEffect(() => {
     if (!error) return;

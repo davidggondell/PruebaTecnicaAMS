@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getProductsQuery } from "@/products/queries/productQueries";
+import { useGetProductsQuery } from "@/products/queries/productQueries";
 import { useMySnackbar } from "@/app/hooks/useMySnackbar";
 
 interface UseProductsProps {
@@ -8,7 +8,7 @@ interface UseProductsProps {
 
 export const useProducts = ({ skip = false }: UseProductsProps = {}) => {
   const { showSnackbar } = useMySnackbar();
-  const { data, isLoading, error, refetch } = getProductsQuery({
+  const { data, isLoading, error, refetch } = useGetProductsQuery({
     enabled: !skip,
   });
 
