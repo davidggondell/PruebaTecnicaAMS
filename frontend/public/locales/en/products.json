@@ -1,0 +1,17 @@
+{
+  "searchPlaceholder": "Search products...",
+  "addToCart": "Add to cart",
+  "specs": "Specifications",
+  "brand": "Brand",
+  "model": "Model",
+  "price": "Price",
+  "cpu": "CPU",
+  "ram": "RAM",
+  "os": "OS",
+  "display": "Display",
+  "battery": "Battery",
+  "camera": "Camera",
+  "dimensions": "Dimensions",
+  "weight": "Weight",
+  "similarProducts": "Similar Products"
+}

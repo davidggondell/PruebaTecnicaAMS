@@ -1,0 +1,17 @@
+{
+  "searchPlaceholder": "Buscar productos...",
+  "addToCart": "Añadir al carrito",
+  "specs": "Especificaciones",
+  "brand": "Marca",
+  "model": "Modelo",
+  "price": "Precio",
+  "cpu": "Procesador",
+  "ram": "RAM",
+  "os": "Sistema Operativo",
+  "display": "Pantalla",
+  "battery": "Batería",
+  "camera": "Cámara",
+  "dimensions": "Dimensiones",
+  "weight": "Peso",
+  "similarProducts": "Productos similares"
+}

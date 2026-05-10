@@ -1,0 +1,13 @@
+{
+  "appName": "PhoneStore",
+  "home": "Home",
+  "products": "Products",
+  "cart": "Cart",
+  "loading": "Loading...",
+  "error": "Something went wrong",
+  "noItems": "No items found",
+  "back": "Back",
+  "selectOptions": "Select options",
+  "storage": "Storage",
+  "color": "Color"
+}

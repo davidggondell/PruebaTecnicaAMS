@@ -1,0 +1,13 @@
+{
+  "appName": "PhoneStore",
+  "home": "Inicio",
+  "products": "Productos",
+  "cart": "Carrito",
+  "loading": "Cargando...",
+  "error": "Algo ha salido mal",
+  "noItems": "No se encontraron elementos",
+  "back": "Volver",
+  "selectOptions": "Seleccionar opciones",
+  "storage": "Almacenamiento",
+  "color": "Color"
+}
