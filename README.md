@@ -29,7 +29,7 @@ docker-compose down
 
 ## ⚙️ Backend (Java & Spring Boot)
 
-El backend es una API REST construida con **Java 21** y **Spring Boot 3.4.0** alojada en la carpeta `/backend`.
+El backend es una API REST construida con **Java 21** y **Spring Boot 4.0.6** alojada en la carpeta `/backend`.
 
 ### Características principales:
 
